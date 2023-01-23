@@ -1,3 +1,5 @@
+import assert from "assert";
+import searchResultsPage from "../../pages/SearchResults";
 /**
  * Ensure link text iunclude keyword
  *
@@ -5,8 +7,8 @@
  * @param {String}  keyword keyword to search for
  */
 
-export default (links, keyword) => {
-	links.forEach((link) => {
+export default (keyword) => {
+	searchResultsPage.searchResultsLinks.forEach((link) => {
 		const linkText = link.getText().toLowerCase();
 		if (linkText) {
 			assert(

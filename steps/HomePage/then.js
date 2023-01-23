@@ -3,5 +3,5 @@ import verifyLinksContain from "C:/dev/tau_cucumber/features/Google Searching/su
 
 Then(/^links related to "(.*)" are shown on the results page$/, (keyword) => {
 	const links = $$(".LC20lb");
-	verifyLinksContain(links, keyword);
+	verifyLinksContain(keyword);
 });

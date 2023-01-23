@@ -1,3 +1,5 @@
+import homePage from "C:/dev/tau_cucumber/features/Google Searching/pages/Home.js"
+
 /**
  * Search for a keyword
  *
@@ -7,9 +9,5 @@
  */
 
 export default (keyword, inputField, submitButton) => {
-	inputField.waitForDisplayed(5000);
-	inputField.click();
-	inputField.setValue(keyword);
-	submitButton.waitForDisplayed(5000);
-	submitButton.click();
+	homePage.search(keyword);
 };
