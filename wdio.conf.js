@@ -54,7 +54,7 @@ exports.config = {
 			// maxInstances can get overwritten per capability. So if you have an in-house Selenium
 			// grid with only 5 firefox instances available you can make sure that not more than
 			// 5 instances get started at a time.
-			maxInstances: 5,
+			maxInstances: 10,
 			//
 			browserName: "chrome",
 			acceptInsecureCerts: true,
@@ -102,7 +102,7 @@ exports.config = {
 	//
 	// Default timeout in milliseconds for request
 	// if browser driver or grid doesn't send response
-	connectionRetryTimeout: 120000,
+	connectionRetryTimeout: 90000,
 	//
 	// Default request retries count
 	connectionRetryCount: 3,
@@ -139,7 +139,11 @@ exports.config = {
 	// If you are using Cucumber you need to specify the location of your step definitions.
 	cucumberOpts: {
 		// <string[]> (file/dir) require files before executing features
-		require: ["./features/step-definitions/steps.js"],
+		require: [
+			"./steps/**/given.js",
+			"./steps/**/when.js",
+			"./steps/**/then.js",
+		],
 		// <boolean> show full backtrace for errors
 		backtrace: false,
 		// <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -149,6 +153,8 @@ exports.config = {
 		// <boolean> abort the run on first failure
 		failFast: false,
 		// <boolean> hide step definition snippets for pending steps
+        format: ["pretty"],
+        // <string[]> (type[:path]) specify the output format, optionally supply PATH to redirect formatter output (repeatable)
 		snippets: true,
 		// <boolean> hide source uris
 		source: true,
